@@ -23,6 +23,7 @@ export default function Mail() {
   const [openValue, setOpenValue] = useState(0);
   const [showBouquet, setShowBouquet] = useState(false);
 
+  //note
   const letterText = useMemo(
     () => ({
       title: "Happy Valentine’s ❤️",
@@ -45,11 +46,12 @@ Will you be my Valentine?
     el.style.setProperty("--open", String(openValue));
   }, [openValue]);
 
+  {/*stop current animation frame*/}
   function stopAnim() {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     rafRef.current = null;
   }
-
+  {/*iwas overlap lala*/}
   function animateTo(target) {
     stopAnim();
 
@@ -73,7 +75,7 @@ Will you be my Valentine?
 
     rafRef.current = requestAnimationFrame(tick);
   }
-
+  {/*open and close nung envelope*/}
   function toggleOpen() {
     const next = !isOpen;
     setIsOpen(next);
@@ -128,7 +130,8 @@ Will you be my Valentine?
             <div className="bouquetEmoji" aria-hidden="true">
               💐
             </div>
-
+            
+             {/*aftre nung yes*/}
             <div className="bouquetTitle">Yay! 🌸</div>
             <div className="bouquetText">isang dambuhalang bouquet for u my Valentine :3</div>
           </div>
@@ -224,7 +227,7 @@ Will you be my Valentine?
           ))}
         </div>
       </div>
-
+           {/*ehader*/}
       <div className="mailCard">
         <div className="mailHeader">
           <h2 className="mailTitle">top secret</h2>
@@ -248,14 +251,14 @@ Will you be my Valentine?
                 <span className="stamp" aria-hidden="true">
                 
                 </span>
-                <span className="letterDate">{new Date().toDateString()}</span>
+                <span className="letterDate">Fri Feb 13 2026</span>
               </div>
 
               <h3 className="letterHeading">{letterText.title}</h3>
 
               <div className="letterBody">
                 <pre className="letterBodyText">{letterText.body}</pre>
-
+          
                 <div className="letterCtaRow">
                   <button
                     type="button"
@@ -269,7 +272,7 @@ Will you be my Valentine?
                   </button>
                 </div>
               </div>
-
+                {/*footer*/}
               <div className="letterFooter">
                 <span className="signature">— Ajpotty</span>
               </div>
